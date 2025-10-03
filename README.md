@@ -1,3 +1,3 @@
 # python_projects
 
-![alt text](image_url)
+![alt text](https://github.com/komal-sharma19/python_projects/blob/main/PythonProjects.png?raw=true)
