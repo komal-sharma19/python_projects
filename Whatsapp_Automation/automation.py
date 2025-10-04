@@ -11,10 +11,15 @@
 from twilio.rest import Client # client---->whatsapp msg send krne k liye
 from datetime import datetime,timedelta #datetime----> time manage krne k liye,timedelta-->time difference calculate krne k liye
 import time
+import os
+from dotenv import load_dotenv
 
-# step 2: Twilio credentials and client setup
-account_sid = 'AC7fd619eb3c5c5b2153b3bf6ee918e977'  # Replace with your Twilio Account SID
-account_token = '9b399c3e633aec2f1685c215e0ce5237'  # Replace with your Twilio Auth Token
+load_dotenv()  # Load environment variables from .env file
+
+
+# Step2: Get credentials from environment variables
+account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+account_token = os.getenv('TWILIO_AUTH_TOKEN')
 
 client = Client(account_sid, account_token)
 
@@ -36,7 +41,7 @@ message= input("Enter the message you want to send: ")
 
 #step 5: parsing date and time and calculating delay
 date_str = input("Enter the date to send the message (YYYY-MM-DD): ")
-time_str = input("Enter the time to send the mess+age (HH:MM in 24-hour format): ")
+time_str = input("Enter the time to send the message (HH:MM in 24-hour format): ")
 
 #datetime object create krna
 scheduled_datetime_str = datetime.strptime(f"{date_str} {time_str}","%Y-%m-%d %H:%M")
